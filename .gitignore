@@ -4,3 +4,4 @@
 /models_anonymizer
 /.gradio
 /wandb
+__pycache__
