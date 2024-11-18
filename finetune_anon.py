@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
-    split_ratio = 0.95
+    split_ratio = 0.9
     learning_rate = 5e-6
     weight_decay = 0.05
     batch_size = 2
