@@ -6,4 +6,5 @@
 /wandb
 /ood_data
 /generalist_data
+/data_pretrain
 __pycache__
