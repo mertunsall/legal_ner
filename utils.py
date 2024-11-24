@@ -1,3 +1,9 @@
+import re
+
+def tokenize_text(text):
+    """Tokenize the input text into a list of tokens."""
+    return re.findall(r'\w+(?:[-_]\w+)*|\S', text)
+
 # count all labels in the test dataset
 def count_labels(data):
     label_count = {}

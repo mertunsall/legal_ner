@@ -4,4 +4,6 @@
 /models_anonymizer
 /.gradio
 /wandb
+/ood_data
+/generalist_data
 __pycache__
