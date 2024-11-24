@@ -60,6 +60,15 @@ def view_joined(tokenized_text, ners):
         start, end, label = ner
         print(f"{label}: {join_tokens(tokenized_text[start:end+1])}")
 
+# view which text, joined using join_tokens, is pointed at by the 'ner' key in a tokenized text
+def view_joined_from_dict(tokens_ners_pair : dict):
+    tokenized_text = tokens_ners_pair.get('tokenized_text',None)
+    ners = tokens_ners_pair.get('ner',None)
+
+    if tokenized_text and ners:
+         view_joined(tokenized_text,ners)
+    else:
+        raise KeyError("Key 'tokenized_text' and or 'ner' missing")
 
 
 def chunk_data(sample, chunk_size, offset):
