@@ -7,4 +7,5 @@
 /ood_data
 /generalist_data
 /data_pretrain
+/auxiliary_data
 __pycache__
