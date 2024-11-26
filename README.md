@@ -10,6 +10,7 @@ Quick File Descriptions:
 - test_anon.ipynb: test the anonymization model
 - test_citation_extract.ipynb: test the citation NER model
 - utils.py: utility functions
+- explore_datasets.ipynb: explore length, labels, texts, languages, and statistics of datasets used for training/fine-tuning
 
 TODO:
 - as one can see above, there are a lot of duplicate files, should be deduplicated
