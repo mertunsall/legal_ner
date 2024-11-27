@@ -1,5 +1,5 @@
 
-organisation_endings:
+organization_endings:
   [
     "AG",
     "GmbH",
@@ -9,7 +9,6 @@ organisation_endings:
     "eK",
     "UG",
     "Inc.",
-    "Inc",
     "Ltd.",
     "Ltd",
     "LLC",
@@ -37,6 +36,7 @@ cutoff:
     [
       "Participants à la procédure",
       "Parteien",
+      "Verfahrensbeteiligte",
       "Partecipanti al procedimento",
       "Parties"
     ]
