@@ -8,4 +8,5 @@
 /generalist_data
 /data_pretrain
 /auxiliary_data
+/bge_data
 __pycache__
