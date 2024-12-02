@@ -10,4 +10,5 @@
 /auxiliary_data
 /bge_data
 /citation_data
+/finetune_data
 __pycache__
