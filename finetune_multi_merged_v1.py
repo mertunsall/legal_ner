@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # calculate number of epochs
     num_steps = 50000
     batch_size = 8
-    data_size = get_dataset_size
+    data_size = get_dataset_size(train_path)
     num_batches = data_size // batch_size
     num_epochs = max(1, num_steps // num_batches)
 
