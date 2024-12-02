@@ -40,7 +40,7 @@ def get_dataset_size(train_path):
         raise FileNotFoundError(f"The file {train_path} does not exist.")
     
     with open(train_path,'r') as f:
-        data = json.load(train_path)
+        data = json.load(f)
     
     return len(data)
 
