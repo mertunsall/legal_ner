@@ -9,4 +9,5 @@
 /data_pretrain
 /auxiliary_data
 /bge_data
+/citation_data
 __pycache__
