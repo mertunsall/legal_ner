@@ -44,7 +44,7 @@ def get_dataset_size(train_path):
     
     return len(data)
 
-def train_model(model_name, model_dir, data_dir, train_path, split_ratio, learning_rate, weight_decay, batch_size, epochs, compile_model):
+def train_model(model_name, model_dir, data_dir, train_path, split_ratio, learning_rate, weight_decay, batch_size, epochs, compile_model,save_steps = 10000,dataloader_num_workers = 2):
     global train_data, train_data
 
     os.makedirs(data_dir, exist_ok=True)
@@ -87,13 +87,13 @@ def train_model(model_name, model_dir, data_dir, train_path, split_ratio, learni
         per_device_eval_batch_size=batch_size,
         num_train_epochs=epochs,
         evaluation_strategy="epoch",
-        save_steps=50000,
-        save_total_limit=6,
-        dataloader_num_workers=8,
+        save_steps=save_steps,
+        save_total_limit=10,
+        dataloader_num_workers=dataloader_num_workers,
         use_cpu=(device == torch.device('cpu')),
         logging_first_step=True,
         logging_steps=1000,
-        report_to="wandb"
+        report_to="none"
 
     )
 
