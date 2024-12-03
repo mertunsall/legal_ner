@@ -1,4 +1,6 @@
 from finetune_main import train_model, get_dataset_size
+from gliner.training import TrainingArguments
+import torch
 import os
 
 if __name__ == "__main__":
@@ -12,8 +14,8 @@ if __name__ == "__main__":
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
     # calculate number of epochs
-    num_steps = 50000
-    batch_size = 8
+    num_steps = 10000
+    batch_size = 16
     data_size = get_dataset_size(train_path)
     num_batches = data_size // batch_size
     num_epochs = max(1, num_steps // num_batches)
@@ -25,6 +27,31 @@ if __name__ == "__main__":
     weight_decay = 0.05
     compile_model = False
 
+    device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
+    print(f"Using device: {device}")
+
+    training_args = TrainingArguments(
+    output_dir=model_dir,
+    learning_rate=learning_rate,
+    weight_decay=weight_decay,
+    others_lr=learning_rate,
+    others_weight_decay=weight_decay,
+    lr_scheduler_type="linear",
+    warmup_ratio=0.1,
+    per_device_train_batch_size=batch_size,
+    per_device_eval_batch_size=batch_size,
+    num_train_epochs=num_epochs,
+    evaluation_strategy="epoch",
+    save_steps=1000,
+    save_total_limit=10,
+    dataloader_num_workers=8,
+    use_cpu=(device == torch.device('cpu')),
+    logging_first_step=True,
+    logging_steps=1000,
+    report_to="none"
+
+)
+
     train_model(base_model, 
                 model_dir, 
                 data_dir,
@@ -35,4 +62,5 @@ if __name__ == "__main__":
                 batch_size, 
                 num_epochs, 
                 compile_model,
+                training_args,
                 dataloader_num_workers=8)
