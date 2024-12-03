@@ -51,7 +51,7 @@ if __name__ == "__main__":
     use_cpu=(device == torch.device('cpu')),
     logging_first_step=True,
     logging_steps=1000,
-    report_to="none",
+    report_to="wandb",
     )
 
     train_model(base_model, 
