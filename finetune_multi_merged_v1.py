@@ -18,6 +18,8 @@ if __name__ == "__main__":
     num_batches = data_size // batch_size
     num_epochs = max(1, num_steps // num_batches)
 
+    print(f"number of epochs : {num_epochs}")
+
     split_ratio = 0.9
     learning_rate = 5e-6
     weight_decay = 0.05
@@ -32,4 +34,5 @@ if __name__ == "__main__":
                 weight_decay, 
                 batch_size, 
                 num_epochs, 
-                compile_model)
+                compile_model,
+                dataloader_num_workers=8)
