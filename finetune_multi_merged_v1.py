@@ -57,9 +57,5 @@ if __name__ == "__main__":
                 data_dir,
                 train_path, 
                 split_ratio, 
-                learning_rate, 
-                weight_decay, 
-                batch_size, 
-                num_epochs, 
                 compile_model,
                 training_args)
