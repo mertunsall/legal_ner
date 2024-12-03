@@ -62,5 +62,4 @@ if __name__ == "__main__":
                 batch_size, 
                 num_epochs, 
                 compile_model,
-                training_args,
-                dataloader_num_workers=8)
+                training_args)
