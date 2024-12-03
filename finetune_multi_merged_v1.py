@@ -14,8 +14,8 @@ if __name__ == "__main__":
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
     # calculate number of epochs
-    num_steps = 50000
-    batch_size = 16
+    num_steps = 30000
+    batch_size = 8
     data_size = get_dataset_size(train_path)
     num_batches = data_size // batch_size
     num_epochs = max(1, num_steps // num_batches)
@@ -42,8 +42,8 @@ if __name__ == "__main__":
     per_device_eval_batch_size=batch_size,
     num_train_epochs=num_epochs,
     evaluation_strategy="steps",
-    eval_steps=5000,
-    save_steps=5000,
+    eval_steps=3000,
+    save_steps=3000,
     save_total_limit=10,
     dataloader_num_workers=8,
     use_cpu=(device == torch.device('cpu')),
