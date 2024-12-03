@@ -11,7 +11,7 @@ if __name__ == "__main__":
     data_dir = f"generalist_data/{custom_model_name}_data"
     train_path = f"finetune_data/merged_v2.json"
 
-    print(f"finetuning on dataset {train_path}")
+    print(f":::: Finetuning on dataset {train_path}")
     
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
