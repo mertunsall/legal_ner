@@ -2,6 +2,7 @@
 /citation_data
 /models_citation
 /models_anonymizer
+/models_generalist
 /.gradio
 /wandb
 /ood_data
