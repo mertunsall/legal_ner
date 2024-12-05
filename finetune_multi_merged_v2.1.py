@@ -15,8 +15,10 @@ if __name__ == "__main__":
     
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
+    #following setup of https://github.com/urchade/GLiNER/blob/training/config_finetune.yaml
+
     # calculate number of epochs
-    num_steps = 50000
+    num_steps = 5000 
     batch_size = 8
     data_size = get_dataset_size(train_path)
     num_batches = data_size // batch_size
@@ -25,8 +27,8 @@ if __name__ == "__main__":
     print(f"number of epochs : {num_epochs}")
 
     split_ratio = 0.9
-    learning_rate = 5e-6
-    weight_decay = 0.05
+    learning_rate = 1e-5
+    weight_decay = 0.01
     compile_model = False
 
     device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
@@ -38,14 +40,14 @@ if __name__ == "__main__":
     weight_decay=weight_decay,
     others_lr=learning_rate,
     others_weight_decay=weight_decay,
-    lr_scheduler_type="linear",
+    lr_scheduler_type="cosine",
     warmup_ratio=0.1,
     per_device_train_batch_size=batch_size,
     per_device_eval_batch_size=batch_size,
     num_train_epochs=num_epochs,
     evaluation_strategy="steps",
-    eval_steps=5000,
-    save_steps=10000,
+    eval_steps=500,
+    save_steps=500,
     save_total_limit=5,
     dataloader_num_workers=0,
     use_cpu=(device == torch.device('cpu')),
