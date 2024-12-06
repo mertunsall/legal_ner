@@ -44,13 +44,13 @@ if __name__ == "__main__":
     per_device_eval_batch_size=batch_size,
     num_train_epochs=num_epochs,
     evaluation_strategy="steps",
-    eval_steps=6000,
-    save_steps=6000,
+    eval_steps=3000,
+    save_steps=3000,
     save_total_limit=5,
     dataloader_num_workers=8,
     use_cpu=(device == torch.device('cpu')),
     logging_first_step=True,
-    logging_steps=1000,
+    logging_steps=6000,
     report_to="wandb",
     )
 
