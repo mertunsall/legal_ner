@@ -58,7 +58,6 @@ if __name__ == "__main__":
     logging_first_step=True,
     logging_steps=5000,
     report_to="wandb",
-    max_neg_type_ratio=0 #meaning no negative entities in training
     )
 
     train_model(base_model, 
@@ -67,4 +66,5 @@ if __name__ == "__main__":
                 train_path, 
                 split_ratio, 
                 compile_model,
-                training_args)
+                training_args,
+                custom_model_configs={"max_neg_type_ratio" : 0})
