@@ -44,7 +44,7 @@ def get_dataset_size(train_path):
     
     return len(data)
 
-def train_model(model_name, model_dir, data_dir, train_path, split_ratio, compile_model,training_args):
+def train_model(model_name, model_dir, data_dir, train_path, split_ratio, compile_model,training_args,custom_model_configs = None):
     global train_data, train_data
 
     os.makedirs(data_dir, exist_ok=True)
@@ -56,7 +56,10 @@ def train_model(model_name, model_dir, data_dir, train_path, split_ratio, compil
     print("Loading model...")
     model = GLiNER.from_pretrained(model_name)
 
-    #print(f"Model Config: {model.config}")
+    if custom_model_configs:
+        for k,v in custom_model_configs.items():
+            setattr(model.config,k,v)
+        print(f"max_neg_type_ratio : {model.config.max_neg_type_ratio}")
 
     print("Loading and preparing data...")
     train_data, val_data = load_and_prepare_data(train_path, split_ratio)
