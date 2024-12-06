@@ -11,11 +11,15 @@ if __name__ == "__main__":
     data_dir = f"generalist_data/{custom_model_name}_data"
     train_path = f"finetune_data/merged_v2.json"
 
+    if os.path.exists(model_dir):
+        print("\n\n\n::::::This model name already exists! Abort if you forgot to change model name! ::::::\n\n\n")
+
     print(f":::: Finetuning on dataset {train_path}")
     
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
     #following setup of https://github.com/urchade/GLiNER/blob/training/config_finetune.yaml
+
 
     # calculate number of epochs
     num_steps = 5000 
