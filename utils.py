@@ -1,4 +1,5 @@
 import re
+from collections import Counter
 
 def tokenize_text(text):
     """Tokenize the input text into a list of tokens."""
@@ -129,3 +130,12 @@ def create_test_data_for_label(data, label):
         if len(new_ners) > 0:
             test_data_label.append({"tokenized_text": example["tokenized_text"], "ner": new_ners})
     return test_data_label
+
+def get_label_dict(data : list[dict],most_common = 0):
+    output =  Counter([ner[2] for sample in data for ner in sample['ner']])
+
+    if most_common:
+        return output.most_common(most_common)
+    
+    else:
+        return output
