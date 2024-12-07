@@ -6,7 +6,7 @@ import os
 if __name__ == "__main__":
     base_model_name = "gliner_multi-v2.1"
     base_model = f"urchade/{base_model_name}"
-    custom_model_name = f"merged_v2_{base_model_name}"
+    custom_model_name = f"anon_cit_v1_{base_model_name}"
     model_dir = f"models_generalist/{custom_model_name}"
     data_dir = f"generalist_data/{custom_model_name}_data"
     train_path = f"finetune_data/merged_v2.json"
