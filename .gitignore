@@ -13,4 +13,6 @@
 /citation_data
 /finetune_data
 /test_data_all
+/train_data_all
+/val_data_all
 __pycache__
