@@ -139,3 +139,9 @@ def get_label_dict(data : list[dict],most_common = 0):
     
     else:
         return output
+    
+def exclude_samples_by_labels(sample,labels_to_exclude : list) -> bool:
+
+    ner_labels = set([x[2] for x in sample['ner']])
+
+    return set(labels_to_exclude) & ner_labels
